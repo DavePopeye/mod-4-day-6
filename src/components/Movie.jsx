@@ -8,6 +8,7 @@ import {
   Button,
 } from "react-bootstrap";
 import CommentList from "./CommentList";
+import { Link } from 'react-router-dom'
 
 class Movie extends Component {
   state = {
@@ -59,15 +60,17 @@ class Movie extends Component {
   render() {
     return (
       <Col className="mb-2" key={this.props.data.imdbID}>
-        <img
-          className="img-fluid"
-          src={this.props.data.Poster}
-          alt="movie"
-          onClick={() => {
-            this.setState({ selected: !this.state.selected });
-            this.props.fetchComments(this.props.data.imdbID);
-          }}
-        />
+        <Link to={'/detail/' + this.props.data.imdbID} >
+          <img
+            className="img-fluid"
+            src={this.props.data.Poster}
+            alt="movie"
+            onClick={() => {
+              // this.setState({ selected: !this.state.selected });
+              // this.props.fetchComments(this.props.data.imdbID);
+            }}
+          />
+        </Link>
         <Modal
           show={this.state.selected}
           onHide={() => this.setState({ selected: !this.state.selected })}

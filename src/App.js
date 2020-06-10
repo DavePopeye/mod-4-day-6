@@ -72,7 +72,7 @@ class App extends Component {
         <div>
           <BrowserRouter>
             <Navbar showSearchResult={this.showSearchResult} />
-            <Route path='/detail' exact component={ShowDetail} />
+            <Route path='/detail/:id' component={ShowDetail} />
             <Container fluid className="px-4">
               <div className="d-flex justify-content-between">
                 <div className="d-flex">
